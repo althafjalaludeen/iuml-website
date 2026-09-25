@@ -1,26 +1,88 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary-green: #165a3a;
+  --deep-green: #0c3b28;
+  --ivory: #f7f4ec;
+  --white: #ffffff;
+  --charcoal: #1c1f1c;
+  --muted: #5e645c;
+  --gold: #a6853d;
+  --color-primary-green: var(--primary-green);
+  --color-deep-green: var(--deep-green);
+  --color-ivory: var(--ivory);
+  --color-white: var(--white);
+  --color-charcoal: var(--charcoal);
+  --color-muted: var(--muted);
+  --color-gold: var(--gold);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary-green: var(--primary-green);
+  --color-deep-green: var(--deep-green);
+  --color-ivory: var(--ivory);
+  --color-white: var(--white);
+  --color-charcoal: var(--charcoal);
+  --color-muted: var(--muted);
+  --color-gold: var(--gold);
+  --font-display: var(--font-cormorant), "Palatino Linotype", Palatino, serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --text-display: clamp(2.75rem, 6.4vw, 5.25rem);
+  --text-display--line-height: 1.05;
+  --text-display--letter-spacing: -0.03em;
+  --text-h1: clamp(2.25rem, 4vw, 3.5rem);
+  --text-h1--line-height: 1.12;
+  --text-h1--letter-spacing: -0.025em;
+  --text-h2: clamp(1.85rem, 3vw, 2.75rem);
+  --text-h2--line-height: 1.15;
+  --text-h2--letter-spacing: -0.02em;
+  --text-h3: clamp(1.35rem, 2vw, 1.75rem);
+  --text-h3--line-height: 1.25;
+  --text-body-large: 1.125rem;
+  --text-body-large--line-height: 1.75;
+  --text-body: 1rem;
+  --text-body--line-height: 1.7;
+  --text-small: 0.875rem;
+  --text-small--line-height: 1.6;
+  --text-metadata: 0.72rem;
+  --text-metadata--line-height: 1.4;
+  --text-metadata--letter-spacing: 0.18em;
+  --text-navigation: 0.8125rem;
+  --text-navigation--line-height: 1.2;
+  --text-navigation--letter-spacing: 0.06em;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-ivory);
+  color: var(--color-charcoal);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-primary-green) 18%, white);
+  color: var(--color-deep-green);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-primary-green);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
